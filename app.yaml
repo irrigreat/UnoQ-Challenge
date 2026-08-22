@@ -1,0 +1,6 @@
+name: NRF24
+description: Blink an LED via microcontroller using RPC calls
+ports: []
+bricks:
+- arduino:web_ui: {}
+icon: 💡

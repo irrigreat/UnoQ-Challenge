@@ -1,0 +1,7 @@
+Background_Not_Crop
+Cotton
+Maize
+Potato
+Rice
+Tomato
+Wheat

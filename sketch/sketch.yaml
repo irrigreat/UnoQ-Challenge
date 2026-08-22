@@ -1,0 +1,9 @@
+profiles:
+  default:
+    fqbn: 
+    platforms:
+      - platform: arduino:zephyr
+    libraries:
+      - RF24 (1.6.2)
+
+default_profile: default

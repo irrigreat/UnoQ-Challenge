@@ -1,0 +1,34 @@
+# Python Cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Ignored Libraries in the Python folder (from your screenshot)
+python/ai_edge_litert/
+python/ai_edge_litert-*/
+python/backports/
+python/backports_strenum-*/
+python/bin/
+python/cv2/
+python/flatbuffers/
+python/flatbuffers-*/
+python/google/
+python/ml_dtypes/
+python/ml_dtypes-*/
+python/numpy/
+python/numpy.libs/
+python/numpy-*/
+python/opencv_python_headless.libs/
+python/opencv_python_headless-*/
+python/protobuf-*/
+python/tqdm/
+python/tqdm-*/
+python/typing_extensions-*/
+
+# Ignore any generic dist-info folders
+*.dist-info/
+
+# OS generated files
+.DS_Store
+Thumbs.db

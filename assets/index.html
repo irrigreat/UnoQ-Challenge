@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SICHAI Field Node 1</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
+  <body>
+    <h1>🌾 SICHAI — Field Node 1 Telemetry & Vision</h1>
+    <div id="error-container" class="error-message" style="display: none"></div>
+
+    <div class="vision-container">
+        <div class="video-box" style="display: flex; flex-direction: column;">
+            <img id="live-video" src="" alt="Waiting for Camera Feed..." />
+            <div style="display: flex; gap: 10px; margin-top: 15px;">
+                <button id="capture-btn" style="flex: 1; padding: 12px; background: #008184; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 1.1rem; font-weight: bold;">📸 Capture & Analyze</button>
+                <button id="restart-cam-btn" style="padding: 12px 20px; background: #c0392b; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 1.2rem; font-weight: bold;" title="Restart Camera USB Feed">🔄</button>
+            </div>
+        </div>
+        
+        <div class="ai-box">
+            <h3>AI Analytics</h3>
+            <p class="ai-label">Crop Detected:</p>
+            <p id="ai-crop" class="ai-value" style="color: #666;">Awaiting Capture...</p>
+            
+            <p class="ai-label" style="margin-top: 15px;">Plant Health:</p>
+            <p id="ai-health" class="ai-value" style="color: #666;">Awaiting Capture...</p>
+            
+            <p class="ai-label" style="margin-top: 15px;">ICAR Logic Status:</p>
+            <p id="ai-dosing" class="ai-value" style="color: #666;">Awaiting Capture...</p>
+        </div>
+    </div>
+
+    <div class="grid">
+        <!-- Smart Fertilizer Delivery Card -->
+        <div class="card" style="width: 100%; display: flex; flex-direction: column; background: #e8f5e9;">
+            <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+                <div style="text-align: left;">
+                    <h3 style="color: #2e7d32;">Smart Fertilizer Delivery</h3>
+                    <p id="dosing-desc" style="margin: 5px 0 0 0; font-size: 0.95rem; color: #555;">Calculates exact seconds to pump based on AI targets & live soil data.</p>
+                </div>
+                <button id="dose-btn" style="padding: 12px 24px; background: #2e7d32; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 1rem; font-weight: bold;">Dispense via Actuator</button>
+            </div>
+            
+            <!-- Live Countdown UI (Hidden by default) -->
+            <div id="countdown-container" style="display: none; margin-top: 15px; padding-top: 15px; border-top: 1px solid #c8e6c9; width: 100%; justify-content: space-around; font-size: 1.1rem; font-weight: bold; background: #dcedc8; border-radius: 8px; padding-bottom: 10px;">
+                <div style="color: #2e7d32;">Nitrogen: <span id="cd-n">0.0</span>s</div>
+                <div style="color: #0277bd;">Phosphorus: <span id="cd-p">0.0</span>s</div>
+                <div style="color: #e65100;">Potassium: <span id="cd-k">0.0</span>s</div>
+                <div style="color: #008184;">Water: <span id="cd-w">0.0</span>s</div>
+            </div>
+        </div>
+
+        <div class="card"><h3>Nitrogen (N)</h3><p class="npk"><span id="val-n">0</span> <span class="unit">mg/kg</span></p><div class="target-box">Target: <span id="target-n">--</span></div></div>
+        <div class="card"><h3>Phosphorus (P)</h3><p class="npk"><span id="val-p">0</span> <span class="unit">mg/kg</span></p><div class="target-box">Target: <span id="target-p">--</span></div></div>
+        <div class="card"><h3>Potassium (K)</h3><p class="npk"><span id="val-k">0</span> <span class="unit">mg/kg</span></p><div class="target-box">Target: <span id="target-k">--</span></div></div>
+        <div class="card"><h3>Moisture</h3><p><span id="val-moist">0</span> <span class="unit">%</span></p></div>
+        <div class="card"><h3>Temperature</h3><p><span id="val-temp">0</span> <span class="unit">°C</span></p></div>
+        <div class="card"><h3>Humidity</h3><p><span id="val-hum">0</span> <span class="unit">%</span></p></div>
+    </div>
+
+    <script src="libs/socket.io.min.js"></script>
+    <script src="libs/arduino.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

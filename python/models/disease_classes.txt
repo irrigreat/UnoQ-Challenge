@@ -1,0 +1,2 @@
+Diseased_Foliage
+Healthy_Foliage
